@@ -12,4 +12,4 @@ Play solo and see how good you are at Poking,
 
 or 
 
-Play this with friends and see who will get the highest score! 
+Play with friends and see who will get the highest score! 
