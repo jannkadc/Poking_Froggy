@@ -41,7 +41,7 @@ function initializeGameTimer() {
     }, 1000)
 }
 
-//Showing showing Froggy at random holes
+//Showing Froggy at random holes
 function showFroggy() {
     if(gameRunning) {
 
