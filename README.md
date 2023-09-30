@@ -5,6 +5,8 @@ However, when you missed Froggy 3 times, the game will be over.
 
 1 point is earned every time Froggy is poked. The higher score you get, the faster the time Froggy appears on random holes.
 
+The time limit per game is 15 seconds.
+
 Play this solo and see how good you are at Poking,
 or 
 Play this with friends and see who will get the highest score! 
