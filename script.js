@@ -8,8 +8,8 @@ const startBtn = document.querySelector('.startBtn')
 
 let score = 0;
 let miss = 0;
-let maxMissLimit = 3;
-let gameDuration = 15; //seconds
+let maxMissLimit = 5;
+let gameDuration = 20; //seconds
 let missTimerInterval = null;
 let countdownInterval = null;
 let gameRunning = false;
@@ -24,13 +24,13 @@ function startGame() {
     startBtn.style.display = 'none';
     gameOverEl.style.display = 'none';
     showFroggyInterval = setInterval(showFroggy, getShowInterval())
-    console.log(getShowInterval()) 
 }
 
 //Initializing game timer
 function initializeGameTimer() {
     countdownInterval = setInterval( ()=>{
         scoreEl.style.display = 'block';
+        scoreEl.innerHTML = `Score : ${score}`;
         countdownEl.style.display = 'block';
         countdownEl.innerHTML = `Time Left : ${gameDuration}`;
         gameDuration--;
@@ -60,6 +60,7 @@ function showFroggy() {
         }, 500);
         missTimerInterval = setTimeout( ()=>{
             miss++;
+            console.log(miss)
         }, 500)
 
     }
@@ -68,7 +69,7 @@ function showFroggy() {
 //Showing Froggy based on scores earned
 function getShowInterval() {
     if(score >= 0 && score <= 5) {
-        return 1000;
+        return 900;
     } else if(score >= 6 && score <= 10) {
         return 700;
     } else {
@@ -86,23 +87,30 @@ function endGame() {
     gameOverEl.innerHTML = `Game Over. Your Score is ${score}`;
     score = 0;
     miss = 0;
-    gameDuration = 15;
+    gameDuration = 20;
     startBtn.style.display = 'block'
 }
 
 //Score is accumulated when hole with Froggy is poked
 holes.forEach(hole =>{
+   
     hole.addEventListener('click', ()=>{
-        if(hole.id == pokePosition){
-            console.log(hole.id);
-            console.log(pokePosition)
+        if(gameRunning && hole.id == pokePosition){
+            clearInterval(missTimerInterval);
             score++;
             scoreEl.innerHTML = `Score : ${score}`;
         } else {
             miss++;
         }
-    })
+    })  
 })
+
+
+
+
+
+
+
  
 
 
