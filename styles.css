@@ -1,0 +1,65 @@
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background: rgb(204,219,152);
+    flex-wrap: wrap;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Irish Grover', cursive;
+    font-size: 4.5rem;
+    color: rgba(49, 68, 4, 0.908);
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.score-container, button {
+    display: flex;
+    justify-content: center;
+    gap: 200px;
+    margin: 0 auto;
+    margin-top: 10px;
+    font-family: 'Rosario', sans-serif;
+    color: rgb(55, 22, 14);
+    font-size: 22px;
+}
+
+button {
+    padding: 6px 30px;
+    background-color: rgb(193, 63, 51);
+    border: none;
+    border-radius: 5px;
+    color: blanchedalmond;
+}
+
+button:hover {
+    background-color: rgb(146, 48, 39);
+}
+
+.gameBoard {
+    width: 500px;
+    height: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    margin: 0 auto;
+    gap: 0 30px;;
+    justify-content: center;
+    align-items: center;
+    background-color: #352505;
+    border-radius: 10px;
+}
+
+.hole {
+    height: 140px;
+    width: 140px;
+    border-radius: 50%;
+    background-color: rgb(116,76,3)
+}
+
+.mole {
+    background-image: url('mole.jpg');
+    background-size: cover;
+}
