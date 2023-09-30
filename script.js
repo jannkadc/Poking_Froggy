@@ -15,6 +15,8 @@ let gameRunning = false;
 let pokePosition;
 let missTimer = null;
 
+
+//Starting the game
 function startGame() {
     initializeGameTimer();
     gameRunning = true;
@@ -23,6 +25,7 @@ function startGame() {
     showFroggyInterval = setInterval(showFroggy, getShowInterval()) 
 }
 
+//Initializing game timer
 function initializeGameTimer() {
     countdownInterval = setInterval( ()=>{
         scoreEl.style.display = 'block';
@@ -36,17 +39,7 @@ function initializeGameTimer() {
     }, 1000)
 }
 
-function getShowInterval() {
-    if(score >= 0 && score <= 5) {
-        return 1000;
-    } else if(score >= 6 && score <= 10) {
-        return 700;
-    } else {
-        return 500;
-    }
-}
-
-
+//Showing showing Froggy at random holes
 function showFroggy() {
     if(gameRunning) {
 
@@ -67,7 +60,18 @@ function showFroggy() {
     }
 }
 
+//Showing Froggy based on scores earned
+function getShowInterval() {
+    if(score >= 0 && score <= 5) {
+        return 1000;
+    } else if(score >= 6 && score <= 10) {
+        return 700;
+    } else {
+        return 500;
+    }
+}
 
+//Ending the game and clearing variables
 function endGame() {
     clearInterval(countdownInterval);
     clearInterval(showFroggyInterval);
@@ -81,7 +85,7 @@ function endGame() {
     startBtn.style.display = 'block'
 }
 
-
+//Score is accumulated when hole with Froggy is poked
 holes.forEach(hole =>{
     hole.addEventListener('click', ()=>{
         if(hole.id == pokePosition){
