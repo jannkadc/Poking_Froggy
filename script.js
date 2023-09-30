@@ -8,12 +8,13 @@ const startBtn = document.querySelector('.startBtn')
 
 let score = 0;
 let miss = 0;
-let maxMissLimit = 5;
+let maxMissLimit = 3;
 let gameDuration = 15; //seconds
+let missTimerInterval = null;
 let countdownInterval = null;
 let gameRunning = false;
 let pokePosition;
-let missTimer = null;
+
 
 
 //Starting the game
@@ -22,7 +23,8 @@ function startGame() {
     gameRunning = true;
     startBtn.style.display = 'none';
     gameOverEl.style.display = 'none';
-    showFroggyInterval = setInterval(showFroggy, getShowInterval()) 
+    showFroggyInterval = setInterval(showFroggy, getShowInterval())
+    console.log(getShowInterval()) 
 }
 
 //Initializing game timer
@@ -56,6 +58,9 @@ function showFroggy() {
         setTimeout( ()=>{
             randomHole.classList.remove('mole')
         }, 500);
+        missTimerInterval = setTimeout( ()=>{
+            miss++;
+        }, 500)
 
     }
 }
